@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Class Assignment 9</title>
+</head>
+<body>
+    <h1>Chidubem Dimanochie In Class Assignment 9 - Check Console</h1>
+    <script>
+        // Array with different sentences
+        const sentences = [
+            "The dog is running.",
+            "He eats a pinecone near his house.",
+            "Chid is free today.",
+            "Pinecones are everywhere."
+        ];
+
+        // Using filter with an explicit return statement inside an if condition
+        const filteredSentences1 = sentences.filter(function(sentence) {
+            if (sentence.includes("pinecone")) {
+                return true;
+            }
+        });
+
+        console.log("Filtered sentences (explicit return):", filteredSentences1);
+
+        // Using filter with arrow function shorthand
+        const filteredSentences2 = sentences.filter(sentence => sentence.includes("pinecone"));
+
+        console.log("Filtered sentences (arrow function):", filteredSentences2);
+    </script>
+</body>
+</html>
