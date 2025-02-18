@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In Class Assignment Question 6</title>
+    <style>
+        #myDiv {
+            padding: 20px;
+            font-size: 20px;
+            text-align: center;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="myDiv">initial text</div>
+
+    <script>
+        document.getElementById("myDiv").addEventListener("click", function() {
+            this.textContent = "added text!";
+            this.style.backgroundColor = "yellow";
+        });
+    </script>
+
+</body>
+</html>
