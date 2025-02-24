@@ -1,36 +1,27 @@
 <?php
+$request_uri = $_SERVER['REQUEST_URI'];
 
-echo $_SERVER["REQUEST_URI"];
-
-//we need this to accept requests from any domain
-header("Access-Control-Allow-Origin: *");
-
-$uri = strtok($_SERVER["REQUEST_URI"], '?');
-
-//get uri pieces
-$uriArray = explode("/", $uri);
-//var_dump($uriArray);
-
-if ($uriArray[1] === 'Dogs' && $_SERVER['REQUEST_METHOD'] === 'GET') {
-    $Dogs = [
-        [
-            'name' => 'pinecone'
-        ],
-        [
-            'name' => 'Mr'
-        ]
+if ($request_uri === '/html') {
+    header('Content-Type: text/html');
+    echo "<!DOCTYPE html>
+    <html>
+    <head>
+        <title>HTML Page</title>
+    </head>
+    <body>
+        <h1>Welcome to the HTML Page</h1>
+        <p>Chidubem Dimanochie.</p>
+    </body>
+    </html>";
+} elseif ($request_uri === '/JSON') {
+    header('Content-Type: application/json');
+    $data = [
+        "message" => "This is a JSON response",
+        "status" => "success"
     ];
-
-    echo json_encode($Dogs);
-    exit();
+    echo json_encode($data);
+} else {
+    header("HTTP/1.0 404 Not Found");
+    echo "Page not found";
 }
-
-if ($uriArray[1] === 'form' && $_SERVER['REQUEST_METHOD'] === 'POST') {
-    echo json_encode([
-        'message' => 'Success'
-    ]);
-    exit();
-
-}
-
 ?>
